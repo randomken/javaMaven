@@ -97,6 +97,31 @@
 					<target>8</target> 
 				</configuration> 
 			</plugin>
+			<plugin>
+              <groupId>com.microsoft.azure</groupId>
+              <artifactId>azure-webapp-maven-plugin</artifactId>
+              <version>2.9.0</version>
+              <configuration>
+                  <schemaVersion>v2</schemaVersion>
+                  <resourceGroup>FVSpringbootApi_group</resourceGroup>
+                  <appName>FVSpringbootApi</appName>
+                  <region>centralus</region>
+                  <runtime>                      <os>Linux</os>
+                      <javaVersion>Java 17</javaVersion>
+                      <webContainer>Tomcat 10.0</webContainer>
+                  </runtime>
+                  <deployment>
+                      <resources>
+                          <resource>
+                              <directory>${project.basedir}/target</directory>
+                              <includes>
+                                  <include>*.war</include>
+                              </includes>
+                          </resource>
+                      </resources>
+                  </deployment>
+              </configuration>
+          </plugin>
 		</plugins>
 	</build>
 
